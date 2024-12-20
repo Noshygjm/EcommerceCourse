@@ -1,19 +1,42 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CourseDetails from "./components/screen/courseDetails/CourseDetails";
+import { getAllCourses } from "./firestore/fireStoreFunctions";
 import './App.css'
 import Navbar from './components/navbar/NavBar'
 import ItemListContainer from './components/screen/itemlistcontainer/ItemListContainer';
 
-
 const App = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null); 
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const allCourses = await getAllCourses();
+        setCourses(allCourses);
+      } catch (error) {
+        console.error("Error al recuperar los cursos:", error);
+      }
+    };
+    fetchCourses();
+  }, []);
 
   return (
-    <div>
-      <Navbar onCategorySelect={setSelectedCategory} />
-      <ItemListContainer selectedCategory={selectedCategory} />
-    </div>
+    <Router>
+       <Navbar onCategorySelect={setSelectedCategory} />
+      <Routes>
+        <Route
+          path="/"
+          element={<ItemListContainer selectedCategory={selectedCategory} courses={courses} />}
+        />
+        <Route
+          path="/course/:id"
+          element={<CourseDetails courses={courses} />}
+        />
+      </Routes>
+    </Router>
   );
 };
 
-
-export default App
+export default App;

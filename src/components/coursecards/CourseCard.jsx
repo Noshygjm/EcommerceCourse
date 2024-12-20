@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./CourseCard.css";
 
-const CourseCard = ({ course, onDetailsClick }) => {
-  
+const CourseCard = ({ course }) => {
+  const navigate = useNavigate();
+
   const handleDetailsClick = () => {
-    onDetailsClick(course);
+    navigate(`/course/${course.id}`); // Redirige a la pantalla de detalles del curso
   };
 
   return (
