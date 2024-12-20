@@ -24,12 +24,18 @@ const App = () => {
 
   return (
     <Router>
-       <Navbar onCategorySelect={setSelectedCategory} />
+      <Navbar />
       <Routes>
+        {/* Ruta para mostrar todos los cursos o por categoría */}
         <Route
           path="/"
-          element={<ItemListContainer selectedCategory={selectedCategory} courses={courses} />}
+          element={<ItemListContainer courses={courses} />}
         />
+        <Route
+          path="/category/:category"
+          element={<ItemListContainer courses={courses} />}
+        />
+        {/* Ruta para mostrar detalles del curso */}
         <Route
           path="/course/:id"
           element={<CourseDetails courses={courses} />}
@@ -40,3 +46,23 @@ const App = () => {
 };
 
 export default App;
+
+
+//   return (
+//     <Router>
+//        <Navbar onCategorySelect={setSelectedCategory} />
+//       <Routes>
+//         <Route
+//           path="/"
+//           element={<ItemListContainer selectedCategory={selectedCategory} courses={courses} />}
+//         />
+//         <Route
+//           path="/course/:id"
+//           element={<CourseDetails courses={courses} />}
+//         />
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
