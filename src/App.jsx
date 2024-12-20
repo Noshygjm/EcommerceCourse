@@ -26,7 +26,6 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        {/* Ruta para mostrar todos los cursos o por categoría */}
         <Route
           path="/"
           element={<ItemListContainer courses={courses} />}
@@ -35,7 +34,6 @@ const App = () => {
           path="/category/:category"
           element={<ItemListContainer courses={courses} />}
         />
-        {/* Ruta para mostrar detalles del curso */}
         <Route
           path="/course/:id"
           element={<CourseDetails courses={courses} />}
