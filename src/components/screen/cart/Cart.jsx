@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import "./Cart.css";
 import { CartContext } from "../../../context/CartContext";
+import { useNavigate } from "react-router-dom";
+import "./Cart.css";
 
 const Cart = () => {
-  const { cartItems, updateItemQuantity, removeItem } = useContext(CartContext);
+  const { cartItems, updateItemQuantity, removeItem, clearCart } = useContext(CartContext);
 
   const handleQuantityChange = (id, quantity) => {
     updateItemQuantity(id, quantity);
@@ -13,8 +14,14 @@ const Cart = () => {
     removeItem(id);
   };
 
+  const navigate = useNavigate();
+
   const handleCheckout = () => {
-    alert("¡Compra finalizada!");
+    navigate("/checkout");
+  };  
+
+  const handleClearCart = () => {
+    clearCart(); 
   };
 
   return (
@@ -48,9 +55,16 @@ const Cart = () => {
               </div>
             ))}
           </div>
-          <button onClick={handleCheckout} className="checkout-button">
-            Finalizar Compra
-          </button>
+
+          <div className="cart-buttons">
+            <button onClick={handleClearCart} className="clear-cart-button">
+              Vaciar Carrito
+            </button>
+            <button onClick={handleCheckout} className="checkout-button">
+              Finalizar Compra
+            </button>
+          </div>          
+
         </>
       )}
     </div>

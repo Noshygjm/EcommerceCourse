@@ -7,6 +7,7 @@ import Navbar from './components/navbar/NavBar'
 import ItemListContainer from './components/screen/itemlistcontainer/ItemListContainer';
 import { CartProvider } from "./context/CartContext";
 import Cart from "./components/screen/cart/Cart";
+import Checkout from "./components/screen/checkout/Checkout";
 
 
 const App = () => {
@@ -46,6 +47,10 @@ const App = () => {
             path="/cart" 
             element={<Cart />} 
           />
+          <Route 
+            path="/checkout" 
+            element={<Checkout />} 
+          /> 
         </Routes>
       </Router>
     </CartProvider>
@@ -54,22 +59,3 @@ const App = () => {
 
 export default App;
 
-
-//   return (
-//     <Router>
-//        <Navbar onCategorySelect={setSelectedCategory} />
-//       <Routes>
-//         <Route
-//           path="/"
-//           element={<ItemListContainer selectedCategory={selectedCategory} courses={courses} />}
-//         />
-//         <Route
-//           path="/course/:id"
-//           element={<CourseDetails courses={courses} />}
-//         />
-//       </Routes>
-//     </Router>
-//   );
-// };
-
-// export default App;
