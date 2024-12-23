@@ -18,6 +18,11 @@
   align-items: center;
 }
 
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-logo {
   width: 40px;
   height: 40px;
@@ -51,3 +56,4 @@
 .navbar-button:hover {
   background-color: #2563eb;
 }
+

@@ -5,6 +5,7 @@ import { getAllCourses } from "./firestore/fireStoreFunctions";
 import './App.css'
 import Navbar from './components/navbar/NavBar'
 import ItemListContainer from './components/screen/itemlistcontainer/ItemListContainer';
+import { CartProvider } from "./context/CartContext";
 
 const App = () => {
   const [courses, setCourses] = useState([]);
@@ -23,23 +24,25 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={<ItemListContainer courses={courses} />}
-        />
-        <Route
-          path="/category/:category"
-          element={<ItemListContainer courses={courses} />}
-        />
-        <Route
-          path="/course/:id"
-          element={<CourseDetails courses={courses} />}
-        />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={<ItemListContainer courses={courses} />}
+          />
+          <Route
+            path="/category/:category"
+            element={<ItemListContainer courses={courses} />}
+          />
+          <Route
+            path="/course/:id"
+            element={<CourseDetails courses={courses} />}
+          />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 };
 

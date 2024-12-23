@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import viteLogo from '/vite.svg'
 import './Navbar.css'; 
+import CartWidget from "../cartwidget/CartWidget";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -38,6 +39,9 @@ const Navbar = () => {
         <button onClick={() => handleCategoryClick("Idiomas")} className="navbar-button">
           Idiomas
         </button>
+      </div>
+      <div className="navbar-right">
+        <CartWidget /> 
       </div>
     </nav>
   );
