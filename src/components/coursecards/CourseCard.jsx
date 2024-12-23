@@ -6,7 +6,7 @@ const CourseCard = ({ course }) => {
   const navigate = useNavigate();
 
   const handleDetailsClick = () => {
-    navigate(`/course/${course.id}`); // Redirige a la pantalla de detalles del curso
+    navigate(`/course/${course.id}`); 
   };
 
   return (

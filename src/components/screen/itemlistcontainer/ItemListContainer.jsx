@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CourseCard from "../../coursecards/CourseCard";
-import { getAllCourses, getCoursesByCategory } from "../../../firestore/fireStoreFunctions";
+import { getCoursesByCategory } from "../../../firestore/fireStoreFunctions";
 import "./ItemListContainer.css";
 
 const ItemListContainer = ({ courses }) => {

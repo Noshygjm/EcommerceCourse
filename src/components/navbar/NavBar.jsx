@@ -42,7 +42,7 @@ const Navbar = () => {
         </button>
       </div>
       <div className="navbar-right">
-        <CartWidget /> {/* Carrito de compras */}
+        <CartWidget /> 
       </div>
     </nav>  
   );
