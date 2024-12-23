@@ -17,6 +17,7 @@ const Navbar = () => {
   };
 
   return (
+
     <nav className="navbar">
       <div className="navbar-left">
         <img
@@ -27,7 +28,7 @@ const Navbar = () => {
         <h1 className="navbar-title">Ecommerce</h1>
       </div>
       <div className="navbar-center">
-      <button onClick={() => handleHomeClick()} className="navbar-button">
+        <button onClick={() => handleHomeClick()} className="navbar-button">
           Home
         </button>
         <button onClick={() => handleCategoryClick("Programacion")} className="navbar-button">
@@ -41,11 +42,41 @@ const Navbar = () => {
         </button>
       </div>
       <div className="navbar-right">
-        <CartWidget /> 
+        <CartWidget /> {/* Carrito de compras */}
       </div>
-    </nav>
+    </nav>  
   );
 };
 
 export default Navbar;
+
+
+    
+// <nav className="navbar">
+// <div className="navbar-left">
+//   <img
+//     src={viteLogo}
+//     alt="Logo"
+//     className="navbar-logo"
+//   />
+//   <h1 className="navbar-title">Ecommerce</h1>
+// </div>
+// <div className="navbar-center">
+// <button onClick={() => handleHomeClick()} className="navbar-button">
+//     Home
+//   </button>
+//   <button onClick={() => handleCategoryClick("Programacion")} className="navbar-button">
+//     Programación
+//   </button>
+//   <button onClick={() => handleCategoryClick("Marketing")} className="navbar-button">
+//     Marketing
+//   </button>
+//   <button onClick={() => handleCategoryClick("Idiomas")} className="navbar-button">
+//     Idiomas
+//   </button>
+// </div>
+// <div className="navbar-right">
+//   <CartWidget /> 
+// </div>
+// </nav>
 

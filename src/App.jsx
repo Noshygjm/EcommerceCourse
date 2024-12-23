@@ -6,10 +6,12 @@ import './App.css'
 import Navbar from './components/navbar/NavBar'
 import ItemListContainer from './components/screen/itemlistcontainer/ItemListContainer';
 import { CartProvider } from "./context/CartContext";
+import Cart from "./components/screen/cart/Cart";
+
 
 const App = () => {
   const [courses, setCourses] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null); 
+
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -39,6 +41,10 @@ const App = () => {
           <Route
             path="/course/:id"
             element={<CourseDetails courses={courses} />}
+          />
+          <Route 
+            path="/cart" 
+            element={<Cart />} 
           />
         </Routes>
       </Router>
