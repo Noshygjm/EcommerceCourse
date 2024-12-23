@@ -2,8 +2,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import viteLogo from '/vite.svg'
-import './Navbar.css'; 
 import CartWidget from "../cartwidget/CartWidget";
+import './NavBar.css'; 
 
 const Navbar = () => {
   const navigate = useNavigate();
